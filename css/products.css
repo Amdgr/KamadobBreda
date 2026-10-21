@@ -1,6 +1,5 @@
 .products-page .products-content {
-    width: min(100% - 2rem, 70rem);
-    margin: 2rem auto;
+    margin: 0 auto;
 }
 
 .products-page .products-content h1 {

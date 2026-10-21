@@ -8,46 +8,143 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.5;
+    background-color: #e8edf0;
 }
 
-header {
+.site-header {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(36 26 20 / 82%);
+}
+
+.site-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(100% - 2rem, 70rem);
+    margin: 0 auto;
+}
+
+.site-brand {
+    display: block;
+    flex: 0 0 auto;
+    line-height: 0;
+}
+
+.site-brand img {
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    object-fit: contain;
+}
+
+.site-hero {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    background-image: url("../img/Kamadoheader.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.site-hero::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: linear-gradient(90deg, rgb(0 0 0 / 55%), transparent 75%);
+    content: "";
+}
+
+.home-page .site-hero {
+    min-height: 32rem;
+}
+
+.site-hero-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.home-page .site-hero-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
 }
 
 main {
     width: min(100% - 2rem, 70rem);
-    margin: 2rem auto;
+    margin: 0 auto;
+    padding: 1.5rem;
+    color: #241a14;
+    background-color: #e8edf0;
+}
+
+.home-page .hero-content {
+    position: absolute;
+    z-index: 2;
+    bottom: 1.5rem;
+    left: max(1rem, calc((100% - 70rem) / 2));
+    width: min(100% - 2rem, 70rem);
+    padding: 1.5rem 0;
+    color: #fff;
+    background: transparent;
+    text-shadow: 0 2px 5px rgb(0 0 0 / 85%);
 }
 
 .site-nav {
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 2rem;
+    padding: 0.75rem 0;
 }
 
 .site-nav a {
     color: #fff;
     font-weight: bold;
+    text-decoration: none;
     min-height: 44px;
-    padding: 0.65rem 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 1rem;
+    border-radius: 0.35rem;
+    background-color: #493326;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+    color: #241a14;
+    background-color: #f2a541;
+}
+
+.site-nav a:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
 }
 
 @media (max-width: 600px) {
+    .site-header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding-block: 0.4rem;
+    }
+
     main {
         width: min(100% - 1.5rem, 70rem);
-        margin-block: 1.25rem;
+        padding: 1.25rem;
     }
 
     .site-nav {
+        flex: initial;
         gap: 0.5rem;
-        padding: 0.75rem;
+        justify-content: flex-start;
+        margin-left: 0;
+        padding-block: 0.4rem;
     }
 
     .site-nav a {
@@ -57,5 +154,9 @@ main {
     h1 {
         font-size: clamp(1.6rem, 7vw, 2.25rem);
         line-height: 1.2;
+    }
+
+    .home-page .site-hero {
+        min-height: 24rem;
     }
 }

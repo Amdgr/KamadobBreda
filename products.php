@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="products-page">
-    <?php require __DIR__ . '/header.php'; ?>
+    <section class="site-hero">
+        <img class="site-hero-image" src="img/Kamadoheader.png" alt="">
+        <?php require __DIR__ . '/header.php'; ?>
+    </section>
     <main class="products-content">
         <h1>Onze producten</h1>
         <p>Het productaanbod komt hier binnenkort.</p>
